@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-base_url = 'https://www.maxidom.ru/catalog/filtry-dlya-vody/'
+base_url = 'https://www.maxidom.ru/catalog/praga/'
 
 def parse_page(url):
     response = requests.get(url)
@@ -35,9 +35,10 @@ def parse_all_pages():
         items, url = parse_page(url)
         all_items.extend(items)
 
+    print("Продукты получены")
     return all_items
 
-products = parse_all_pages()
-for product in products:
-    print(f"Наименование товара: {product[0]}, цена: {product[1]}")
-print(len(products))
+# products = parse_all_pages()
+# for product in products:
+#     print(f"Наименование товара: {product[0]}, цена: {product[1]}")
+# print(len(products))
